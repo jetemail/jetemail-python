@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jetemail"
+dynamic = ["version"]
+description = "JetEmail Python SDK for transactional email sending"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [
+    { name = "JetEmail", email = "sales@jetemail.com" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications :: Email",
+]
+dependencies = [
+    "requests>=2.28.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/jetemail/jetemail-python"
+Documentation = "https://support.jetemail.com"
+Repository = "https://github.com/jetemail/jetemail-python"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "jetemail.version.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["jetemail*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
